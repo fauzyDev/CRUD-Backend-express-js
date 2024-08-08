@@ -1,7 +1,7 @@
 import express from "express"
 import body from "body-parser"
-import { database } from "./connection/database.js"
-import { response } from "./res/response.js"
+import { database } from "./src/connection/database.js"
+import { response } from "./src/res/response.js"
 const app = express()
 const port = 3000
 
