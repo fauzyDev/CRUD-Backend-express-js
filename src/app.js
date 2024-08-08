@@ -20,16 +20,16 @@ app.use(body.json())
 //   })
 // })
 
-app.get('/find', (req, res) => {
-  database.query(`SELECT nama_lengkap FROM tbl_mahasiswa WHERE nim = ${req.query.nim}`, (error, succes) => {
-    response(200, succes, "data berhasil di ambil", res)
-  })
-})
+// app.get('/find', (req, res) => {
+//   database.query(`SELECT nama_lengkap FROM tbl_mahasiswa WHERE nim = ${req.query.nim}`, (error, succes) => {
+//     response(200, succes, "data berhasil di ambil", res)
+//   })
+// })
 
-app.put('/update', (req, res) => {
-  console.log({ data: req.body })
-  res.send('update berhasil')
-})
+// app.put('/update', (req, res) => {
+//   console.log({ data: req.body })
+//   res.send('update berhasil')
+// })
 
 const data = [
   {
@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
   res.status(200).json( { message: 'api ready'})
 })
 
-app.get('api/data', (req, res) => {
+app.get('/api/data', (req, res) => {
   res.json(data)
 })
 
