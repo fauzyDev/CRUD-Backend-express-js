@@ -7,18 +7,18 @@ const port = 3000
 
 app.use(body.json())
 
-app.get('/', (req, res) => {
-    const sql = "SELECT * FROM tbl_mahasiswa"
-    database.query(sql, (error, succes) => {
-    if (error) {
-      return res.status(500).json({
-        status: "error",
-        message: "Gagal mengambil data dari"
-      })
-    } 
-    response(200, succes, "data berhasil di ambil", res)
-  })
-})
+// app.get('/', (req, res) => {
+//     const sql = "SELECT * FROM tbl_mahasiswa"
+//     database.query(sql, (error, succes) => {
+//     if (error) {
+//       return res.status(500).json({
+//         status: "error",
+//         message: "Gagal mengambil data dari"
+//       })
+//     } 
+//     response(200, succes, "data berhasil di ambil", res)
+//   })
+// })
 
 app.get('/find', (req, res) => {
   database.query(`SELECT nama_lengkap FROM tbl_mahasiswa WHERE nim = ${req.query.nim}`, (error, succes) => {
@@ -41,8 +41,11 @@ const data = [
   }
 ]
 
+app.get('/', (req, res) => {
+  res.status(200).json( { message: 'api ready'})
+})
 
-app.get('/data', (req, res) => {
+app.get('api/data', (req, res) => {
   res.json(data)
 })
 
