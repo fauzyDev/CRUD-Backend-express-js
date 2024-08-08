@@ -1,11 +1,14 @@
 import express from "express"
 import body from "body-parser"
+import cors from "cors"
 import { database } from "./src/connection/database.js"
 import { response } from "./src/res/response.js"
+import { data } from "./src/model/data.js"
 const app = express()
 const port = 3000
 
 app.use(body.json())
+app.use(cors())
 
 // app.get('/', (req, res) => {
 //     const sql = "SELECT * FROM tbl_mahasiswa"
@@ -30,16 +33,6 @@ app.use(body.json())
 //   console.log({ data: req.body })
 //   res.send('update berhasil')
 // })
-
-const data = [
-  {
-    user: {
-      nama: "sandi",
-      umur: "20",
-      alamat: "ciamis",
-    }
-  }
-]
 
 app.get('/', (req, res) => {
   res.status(200).json( { message: 'api ready'})
